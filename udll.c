@@ -1,13 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Node* createNode(union Data data) {
-	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-	newNode->data = data;
-	newNode->prev = NULL;
-	newNode->next = NULL;
-	return newNode;
-
 void insert (int index, union Data data, int type){
 	if (head == NULL) {
 		head->data = data;
@@ -66,7 +59,8 @@ void insert (int index, union Data data, int type){
 			ptr->next = newNode;
 		}
 	}		
-}
+} // end insert func
+
 void remove(int index) {
 	if (index == 0) { //deleting head
 		if (length() == 1){
@@ -99,9 +93,28 @@ void remove(int index) {
 		}
 		ptr->prev->next = ptr->next;
 	}
-}
-			
-		
+} //end remove func
+
+union Data get(int index) {
+	if (index =< length() ) {
+		ctr = 0;
+		struct Node* ptr = head;
+		while (ctr < index) {
+			ptr = ptr->next;
+			ctr++;
+		}
+		return ptr->data;
+	}
+	if (index > (length()/2) ) {
+		ctr = 0;
+		struct Node* ptr = last;
+		while (ctr > index) {
+			ptr = ptr->pev;
+			ctr--;
+		}
+		return ptr->data;
+	}	
+} // end get func	
 				 			
 int length() {
 	if (head == NULL) {
@@ -110,6 +123,6 @@ int length() {
 	else {
 		return (head->listLength);
 	}
-}
+} //end length func
 	
 
