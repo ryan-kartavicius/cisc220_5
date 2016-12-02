@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+//assignment 5 question 1
 struct Node* createNode(union Data data) {
 	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
 	newNode->data = data;
