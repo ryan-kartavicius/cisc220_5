@@ -58,6 +58,7 @@ void insert (int index, union Data data, int type){
 			ptr->next->prev = newNode;
 			ptr->next = newNode;
 		}
+	head->listLength = (head->listLength + 1);
 	}		
 } // end insert func
 
@@ -92,7 +93,9 @@ void remove(int index) {
 			ctr--;
 		}
 		ptr->prev->next = ptr->next;
+	
 	}
+	head->listLength = (head->listLength - 1);
 } //end remove func
 
 union Data get(int index) {
