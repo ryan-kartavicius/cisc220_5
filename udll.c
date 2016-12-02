@@ -71,7 +71,37 @@ void remove(int index) {
 	if (index == 0) { //deleting head
 		if (length() == 1){
 			head = NULL;
-		}	
+		}
+		else {
+			head = head->next;
+			head->prev = NULL;
+		}
+	}
+	else if (index = length()){ // deleting last
+		last = last->prev;
+		last->next = NULL;
+	}
+	else if (index =< (length()/2) ) {
+		ctr = 0;
+		struct Node* ptr = head;
+		while (ctr > index) {
+			ptr = ptr->next;
+			ctr++;
+		}
+		ptr->prev->next = ptr->next;
+	}
+	else if (index > (length()/2)) { 
+		ctr = 0;
+		struct Node* ptr = last;
+		while (ctr < index) {
+			ptr = ptr->prev;
+			ctr--;
+		}
+		ptr->prev->next = ptr->next;
+	}
+}
+			
+		
 				 			
 int length() {
 	if (head == NULL) {
