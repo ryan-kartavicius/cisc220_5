@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include"udll.h"
 
-void insert (int index, union Data data, int type){
+void insert (int index, union Data data, 0){
 	if (head == NULL) {
 		head->data = data;
 		head->next = NULL;
